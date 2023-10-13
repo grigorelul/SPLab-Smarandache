@@ -7,4 +7,8 @@ public class Paragraph {
     {
         this.text = text;
     }
+    public void print()
+    {
+        System.out.println(this.text+ "  ");
+    }
 }

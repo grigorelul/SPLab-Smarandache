@@ -1,5 +1,7 @@
 package com.example.splabsmarandache.classes;
 
+import javax.swing.plaf.PanelUI;
+
 public class Author {
     private String name;
 
@@ -7,6 +9,8 @@ public class Author {
     {
         this.name = name;
     }
-
-    
+    public void print()
+    {
+        System.out.println(name + "  ");
+    }
 }

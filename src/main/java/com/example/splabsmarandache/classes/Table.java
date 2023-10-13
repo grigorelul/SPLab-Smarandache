@@ -7,4 +7,8 @@ public class Table {
     {
         this.title = title;
     }
+    public void print()
+    {
+        System.out.println(this.title + "  ");
+    }
 }

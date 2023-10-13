@@ -7,6 +7,11 @@ public class Image {
     {
         this.imageName = imageName;
     }
+    public void print()
+    {
+        System.out.println(this.imageName + "  ");
+
+    }
 }
 
 
