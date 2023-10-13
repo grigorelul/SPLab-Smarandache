@@ -12,6 +12,10 @@ public class Image implements Element {
         System.out.println("Image with name:" + this.imageName);
 
     }
+    public int getType()
+    {
+        return 2;
+    }
 }
 
 

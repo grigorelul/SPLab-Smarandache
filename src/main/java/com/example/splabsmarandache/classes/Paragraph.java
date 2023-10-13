@@ -11,4 +11,8 @@ public class Paragraph implements Element{
     {
         System.out.println("Paragraph: " + this.text);
     }
+    public int getType()
+    {
+        return 1;
+    }
 }

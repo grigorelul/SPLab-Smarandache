@@ -11,4 +11,8 @@ public class Table implements Element {
     {
         System.out.println("Table with Title:  " + this.title);
     }
+    public int getType()
+    {
+        return 3;
+    }
 }
