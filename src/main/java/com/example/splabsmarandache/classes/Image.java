@@ -9,7 +9,7 @@ public class Image {
     }
     public void print()
     {
-        System.out.println(this.imageName + "  ");
+        System.out.println("Image with name:" + this.imageName);
 
     }
 }

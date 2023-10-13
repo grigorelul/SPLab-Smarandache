@@ -27,17 +27,18 @@ public class SubChapter {
         this.tableList.add(t);
     }
     public void print(){
-        System.out.println(this.name);
+        System.out.println("Subchapter:" + this.name);
 
-        for(Table tab :tableList) {
-            tab.print();
+        for(Paragraph para : paragraphList) {
+            para.print();
         }
         for (Image im : imageList) {
             im.print();
         }
-        for(Paragraph para : paragraphList) {
-            para.print();
+        for(Table tab :tableList) {
+            tab.print();
         }
+
     }
 
 }

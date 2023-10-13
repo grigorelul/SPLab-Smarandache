@@ -9,6 +9,6 @@ public class Table {
     }
     public void print()
     {
-        System.out.println(this.title + "  ");
+        System.out.println("Table with Title:  " + this.title);
     }
 }

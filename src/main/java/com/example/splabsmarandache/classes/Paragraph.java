@@ -9,6 +9,6 @@ public class Paragraph {
     }
     public void print()
     {
-        System.out.println(this.text+ "  ");
+        System.out.println("Paragraph: " + this.text);
     }
 }
