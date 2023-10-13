@@ -1,6 +1,6 @@
 package com.example.splabsmarandache.classes;
 
-public class Table {
+public class Table implements Element {
     private String title;
 
     public Table(String title)
