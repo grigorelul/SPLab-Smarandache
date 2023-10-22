@@ -1,6 +1,6 @@
 package com.example.splabsmarandache.classes;
 
-public class TableOfContents implements Element {
+public class TableOfContents extends Element {
 
     public void print()
     {

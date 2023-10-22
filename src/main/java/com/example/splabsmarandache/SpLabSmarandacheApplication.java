@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class SpLabSmarandacheApplication {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 //        SpringApplication.run(SpLabSmarandacheApplication.class, args);
 
         Book noapteBuna = new Book("Noapte buna, copii!");

@@ -1,6 +1,6 @@
 package com.example.splabsmarandache.classes;
 
-public class Image implements Element {
+public class Image extends Element {
     private String imageName;
 
     public Image(String imageName)
@@ -10,7 +10,6 @@ public class Image implements Element {
     public void print()
     {
         System.out.println("Image with name:" + this.imageName);
-
     }
 
     @Override

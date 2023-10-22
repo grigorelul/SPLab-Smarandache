@@ -31,9 +31,13 @@ public class Book extends Section{
     }
 
 
-    public void addContent(Element text){
-        super.add(text);
+    public void addContent(Element element) throws Exception {
+        try
+        {
+            super.add(element);
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
     }
-
 
 }

@@ -3,12 +3,13 @@ package com.example.splabsmarandache.classes;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Section implements Element {
+public class Section extends Element {
     private String title;
-    private List<Element> elementList = new ArrayList<>();
+    private List<Element> elementList;
 
     public Section(String title) {
         this.title = title;
+        elementList = new ArrayList<>();
     }
 
     public String getTitle(){
@@ -24,12 +25,19 @@ public class Section implements Element {
             elem.print();
     }
 
-    public void add(Element elem) {
-        elementList.add(elem);
+    public void add(Element elem) throws Exception{
+        if(elem.getParinte() == null)
+        {
+            elem.setParinte(this);
+            elementList.add(elem);
+        } else {
+            throw new Exception("Elementul exista deja");
+        }
     }
 
     public void remove(Element elem){
         elementList.remove(elem);
+        elem.setParinte(null);
     }
 
     public Element get(int index) {

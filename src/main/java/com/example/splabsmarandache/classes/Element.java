@@ -1,8 +1,21 @@
 package com.example.splabsmarandache.classes;
 
-public interface Element {
-     void print();
-     void add(Element elem);
-     void remove(Element elem);
-     Element get(int index);
+public abstract class Element {
+
+     private Element parinte = null;
+
+    public Element getParinte() {
+        return parinte;
+    }
+
+    public void setParinte(Element parinte) {
+        this.parinte = parinte;
+    }
+
+    abstract void print();
+      void add(Element elem) throws Exception {};
+      void remove(Element elem){};
+      Element get(int index){
+          return null;
+     }
 }
