@@ -2,5 +2,7 @@ package com.example.splabsmarandache.classes;
 
 public interface Element {
      void print();
-     int getType();
+     void add(Element elem);
+     void remove(Element elem);
+     Element get(int index);
 }

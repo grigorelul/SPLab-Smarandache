@@ -11,8 +11,20 @@ public class Table implements Element {
     {
         System.out.println("Table with Title:  " + this.title);
     }
-    public int getType()
-    {
-        return 3;
+
+    @Override
+    public void add(Element elem) {
+
     }
+
+    @Override
+    public void remove(Element elem) {
+
+    }
+
+    @Override
+    public Element get(int index) {
+        return null;
+    }
+
 }

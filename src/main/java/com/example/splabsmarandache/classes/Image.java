@@ -12,9 +12,20 @@ public class Image implements Element {
         System.out.println("Image with name:" + this.imageName);
 
     }
-    public int getType()
-    {
-        return 2;
+
+    @Override
+    public void add(Element elem) {
+
+    }
+
+    @Override
+    public void remove(Element elem) {
+
+    }
+
+    @Override
+    public Element get(int index) {
+        return null;
     }
 }
 

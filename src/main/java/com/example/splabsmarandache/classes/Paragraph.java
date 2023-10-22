@@ -11,8 +11,21 @@ public class Paragraph implements Element{
     {
         System.out.println("Paragraph: " + this.text);
     }
-    public int getType()
-    {
-        return 1;
+
+    @Override
+    public void add(Element elem) {
+
     }
+
+    @Override
+    public void remove(Element elem) {
+
+    }
+
+    @Override
+    public Element get(int index) {
+        return null;
+    }
+
+
 }
