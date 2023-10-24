@@ -1,15 +1,25 @@
 package com.example.splabsmarandache.classes;
 
-public class Image extends Element {
-    private String imageName;
+import java.awt.*;
+import java.util.concurrent.TimeUnit;
 
-    public Image(String imageName)
+public class Image extends Element implements Picture {
+    private String url;
+    //private ImageContent content ;
+
+    public Image(String url)
     {
-        this.imageName = imageName;
+        this.url = url;
+        try{
+            TimeUnit.SECONDS.sleep(5);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
     }
     public void print()
     {
-        System.out.println("Image with name:" + this.imageName);
+        System.out.println("Image with name:" + this.url);
     }
 
     @Override
@@ -24,6 +34,16 @@ public class Image extends Element {
 
     @Override
     public Element get(int index) {
+        return null;
+    }
+
+    @Override
+    public String url() {
+        return null;
+    }
+
+    @Override
+    public Dimension dim() {
         return null;
     }
 }
