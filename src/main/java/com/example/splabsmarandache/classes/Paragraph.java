@@ -2,6 +2,7 @@ package com.example.splabsmarandache.classes;
 
 public class Paragraph extends Element{
     private String text;
+    private AlignStrategy textAlignement = null;
 
     public Paragraph(String text)
     {
@@ -9,7 +10,11 @@ public class Paragraph extends Element{
     }
     public void print()
     {
-        System.out.println("Paragraph: " + this.text);
+        if (textAlignement == null)
+            System.out.println(text);
+        else
+            textAlignement.Render(text);
+
     }
 
     @Override
@@ -28,4 +33,7 @@ public class Paragraph extends Element{
     }
 
 
+    public void setAlignStrategy(AlignStrategy alignStrategy) {
+        textAlignement = alignStrategy;
+    }
 }
