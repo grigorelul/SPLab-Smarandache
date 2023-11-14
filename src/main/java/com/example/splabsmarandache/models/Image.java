@@ -1,4 +1,4 @@
-package com.example.splabsmarandache.classes;
+package com.example.splabsmarandache.models;
 
 import java.awt.*;
 import java.util.concurrent.TimeUnit;
@@ -17,6 +17,12 @@ public class Image extends Element implements Picture {
         }
 
     }
+
+    public void accept(Visitor visitor)
+    {
+        visitor.visitImage(this);
+    }
+
     public void print()
     {
         System.out.println("Image with name:" + this.url);

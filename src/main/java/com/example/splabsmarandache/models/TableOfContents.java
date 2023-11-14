@@ -1,4 +1,4 @@
-package com.example.splabsmarandache.classes;
+package com.example.splabsmarandache.models;
 
 public class TableOfContents extends Element {
 
@@ -20,5 +20,10 @@ public class TableOfContents extends Element {
     @Override
     public Element get(int index) {
         return null;
+    }
+
+    public void accept(Visitor visitor)
+    {
+        visitor.visitTableOfContent(this);
     }
 }

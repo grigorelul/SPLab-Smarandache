@@ -1,6 +1,4 @@
-package com.example.splabsmarandache.classes;
-
-import javax.swing.plaf.PanelUI;
+package com.example.splabsmarandache.models;
 
 public class Author {
     private String name;

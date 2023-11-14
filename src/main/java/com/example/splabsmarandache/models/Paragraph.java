@@ -1,4 +1,6 @@
-package com.example.splabsmarandache.classes;
+package com.example.splabsmarandache.models;
+
+import com.example.splabsmarandache.services.AlignStrategy;
 
 public class Paragraph extends Element{
     private String text;
@@ -7,6 +9,11 @@ public class Paragraph extends Element{
     public Paragraph(String text)
     {
         this.text = text;
+    }
+
+    public void accept(Visitor visitor)
+    {
+        visitor.visitParagraph(this);
     }
     public void print()
     {

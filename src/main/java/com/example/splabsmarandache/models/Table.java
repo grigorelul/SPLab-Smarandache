@@ -1,4 +1,4 @@
-package com.example.splabsmarandache.classes;
+package com.example.splabsmarandache.models;
 
 public class Table extends Element {
     private String title;
@@ -7,6 +7,12 @@ public class Table extends Element {
     {
         this.title = title;
     }
+
+    public void accept(Visitor visitor)
+    {
+        visitor.visitTable(this);
+    }
+
     public void print()
     {
         System.out.println("Table with Title:  " + this.title);

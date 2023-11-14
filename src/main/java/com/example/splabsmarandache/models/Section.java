@@ -1,4 +1,4 @@
-package com.example.splabsmarandache.classes;
+package com.example.splabsmarandache.models;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +19,14 @@ public class Section extends Element {
     {
         return elementList;
     }
+
+    public void accept(Visitor visitor)
+    {
+        visitor.visitSection(this);
+        for(Element elem : elementList)
+             elem.accept(visitor);
+    }
+
     public void print() {
         System.out.println(title);
         for(Element elem : elementList)

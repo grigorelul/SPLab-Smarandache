@@ -1,4 +1,4 @@
-package com.example.splabsmarandache.classes;
+package com.example.splabsmarandache.services;
 
 public class AlignLeft implements AlignStrategy{
 
