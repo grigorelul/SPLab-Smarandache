@@ -1,6 +1,9 @@
 package com.example.splabsmarandache.models;
 
+import lombok.Getter;
+
 public class Table extends Element {
+    @Getter
     private String title;
 
     public Table(String title)

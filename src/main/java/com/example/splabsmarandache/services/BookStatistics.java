@@ -2,41 +2,51 @@ package com.example.splabsmarandache.services;
 
 import com.example.splabsmarandache.models.*;
 
-public class RenderContentVisitor<T> implements Visitor{
+public class BookStatistics implements  Visitor{
 
+    private int images=0;
+    private int paragrafs=0;
+    private int tables=0;
     @Override
     public void visitBook(Book book) {
-        System.out.println(book.getTitle());
+
     }
 
     @Override
     public void visitSection(Section section) {
-        System.out.println(section.getTitle());
+
     }
 
     @Override
     public void visitTableOfContent(TableOfContent tableOfContent) {
-        tableOfContent.print();
+
     }
 
     @Override
     public void visitParagraph(Paragraph paragraph) {
-        paragraph.print();
+        paragrafs +=1;
     }
 
     @Override
     public void visitImageProxy(ImageProxy imageProxy) {
-        imageProxy.print();
+        images += 1;
     }
 
     @Override
     public void visitImage(Image image) {
-        image.print();
+        images += 1;
     }
 
     @Override
     public void visitTable(Table table) {
-        table.print();
-    }
 
+        tables += 1 ;
+    }
+    public void printStatistics()
+    {
+        System.out.println("Book Statistics:");
+        System.out.println("*** Number of images: " + images);
+        System.out.println("*** Number of tables: "+ tables);
+        System.out.println("*** Number of paragraphs: " + paragrafs);
+    }
 }

@@ -1,9 +1,12 @@
 package com.example.splabsmarandache.models;
 
+import lombok.Getter;
+
 import java.awt.*;
 import java.util.concurrent.TimeUnit;
 
 public class Image extends Element implements Picture {
+    @Getter
     private String url;
     //private ImageContent content ;
 

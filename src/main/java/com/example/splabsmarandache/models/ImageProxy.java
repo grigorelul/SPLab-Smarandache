@@ -38,7 +38,7 @@ public class ImageProxy extends  Element implements  Picture{
         visitor.visitImageProxy(this);
     }
     @Override
-    void print() {
+    public void print() {
         loadImage();
         realImage.print();
     }
