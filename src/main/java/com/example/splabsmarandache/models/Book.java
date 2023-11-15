@@ -1,6 +1,4 @@
-package com.example.splabsmarandache.classes;
-
-import org.springframework.beans.propertyeditors.CharArrayPropertyEditor;
+package com.example.splabsmarandache.models;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +28,12 @@ public class Book extends Section{
             elem.print();
     }
 
+    public void accept(Visitor visitor)
+    {
+        visitor.visitBook(this);
+        for(Element elem: super.getElementList())
+            elem.accept(visitor);
+    }
 
     public void addContent(Element element) {
         try

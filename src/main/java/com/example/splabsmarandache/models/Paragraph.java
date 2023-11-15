@@ -1,12 +1,21 @@
-package com.example.splabsmarandache.classes;
+package com.example.splabsmarandache.models;
+
+import com.example.splabsmarandache.services.AlignStrategy;
+import lombok.Getter;
 
 public class Paragraph extends Element{
+    @Getter
     private String text;
     private AlignStrategy textAlignement = null;
 
     public Paragraph(String text)
     {
         this.text = text;
+    }
+
+    public void accept(Visitor visitor)
+    {
+        visitor.visitParagraph(this);
     }
     public void print()
     {
@@ -36,4 +45,6 @@ public class Paragraph extends Element{
     public void setAlignStrategy(AlignStrategy alignStrategy) {
         textAlignement = alignStrategy;
     }
+
+
 }

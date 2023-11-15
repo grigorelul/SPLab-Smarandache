@@ -1,4 +1,6 @@
-package com.example.splabsmarandache.classes;
+package com.example.splabsmarandache.services;
+
+import com.example.splabsmarandache.models.Image;
 
 public class ImageLoaderFactory {
     private Image used;

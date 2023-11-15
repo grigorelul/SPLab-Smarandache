@@ -1,7 +1,6 @@
-package com.example.splabsmarandache.classes;
+package com.example.splabsmarandache.models;
 
 import java.awt.*;
-import java.security.PublicKey;
 
 public class ImageProxy extends  Element implements  Picture{
     private String url;
@@ -34,9 +33,17 @@ public class ImageProxy extends  Element implements  Picture{
         return realImage;
     }
 
+    public void accept(Visitor visitor)
+    {
+        visitor.visitImageProxy(this);
+    }
     @Override
-    void print() {
+    public void print() {
         loadImage();
         realImage.print();
+    }
+
+    public String getUrl() {
+        return url;
     }
 }

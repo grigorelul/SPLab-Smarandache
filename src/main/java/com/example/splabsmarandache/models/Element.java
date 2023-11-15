@@ -1,4 +1,4 @@
-package com.example.splabsmarandache.classes;
+package com.example.splabsmarandache.models;
 
 public abstract class Element {
 
@@ -13,9 +13,11 @@ public abstract class Element {
     }
 
     abstract void print();
-      void add(Element elem) throws Exception {};
-      void remove(Element elem){};
-      Element get(int index){
+    void add(Element elem) throws Exception {};
+    void remove(Element elem){};
+    Element get(int index){
           return null;
      }
+
+    void accept(Visitor visitor){};
 }
