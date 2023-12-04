@@ -1,63 +1,64 @@
 package com.example.splabsmarandache.controller;
 
 import com.example.splabsmarandache.models.Book;
+import com.example.splabsmarandache.services.*;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/books")
 public class BooksController {
 
     // Dummy list to store books (replace this with a database in a real application)
-    private List<Book> books = new ArrayList<>();
+    private BooksService books = new BooksService();
 
+    CommandGetAllBooks getAll;
+    CommandGetBookById getBookById;
+    CommandUpdateBook updateBook;
+    CommandDeleteBook deleteBook;
+    CommandAddBook addBook;
+
+    public BooksController()
+    {
+        this.getAll = new CommandGetAllBooks(books);
+        this.getBookById = new CommandGetBookById(books);
+        this.updateBook = new CommandUpdateBook(books);
+        this.deleteBook = new CommandDeleteBook(books);
+        this.addBook = new CommandAddBook(books);
+    }
     // GET method to retrieve all books
     @GetMapping
     public List<Book> getAllBooks() {
-        return books;
+        return getAll.execute();
     }
 
     // GET method to retrieve a specific book by ID
     @GetMapping("/{id}")
-    public Book getBookById(@PathVariable Long id) {
-        // Implement logic to find and return the book by ID
-        // If not found, you can return a 404 response
-        // Example: return books.stream().filter(book -> book.getId().equals(id)).findFirst().orElse(null);
-        return null;
+    public Book getBookByTitle(@PathVariable Long id) {
+        this.getBookById.setId(id);
+        return getBookById.execute();
     }
 
     // POST method to add a new book
     @PostMapping
     public Book addBook(@RequestBody Book newBook) {
-        // Implement logic to add the new book to the list or database
-        // Example: books.add(newBook);
-        // Return the added book
-        return newBook;
+        addBook.setAtribute(newBook);
+        return addBook.execute();
     }
 
     // PUT method to update a book by ID
     @PutMapping("/{id}")
     public Book updateBook(@PathVariable Long id, @RequestBody Book updatedBook) {
-        // Implement logic to update the book with the given ID
-        // Example: Find the book by ID, update its details, and return the updated book
-        return updatedBook;
+       this.updateBook.setAtribute(id, updatedBook);
+       return this.updateBook.execute();
     }
 
-    // PATCH method to partially update a book by ID
-    @PatchMapping("/{id}")
-    public Book patchBook(@PathVariable Long id, @RequestBody Map<String, Object> updates) {
-        // Implement logic to partially update the book with the given ID
-        // Example: Find the book by ID, apply the updates, and return the patched book
-        return null;
-    }
 
     // DELETE method to delete a book by ID
     @DeleteMapping("/{id}")
     public void deleteBook(@PathVariable Long id) {
-        // Implement logic to delete the book with the given ID
-        // Example: books.removeIf(book -> book.getId().equals(id));
+        this.deleteBook.setAtribute(id);
+        this.deleteBook.execute();
     }
 }
