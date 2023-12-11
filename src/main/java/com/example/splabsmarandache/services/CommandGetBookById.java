@@ -1,23 +1,22 @@
 package com.example.splabsmarandache.services;
 
 import com.example.splabsmarandache.models.Book;
+import lombok.RequiredArgsConstructor;
 
 import java.util.List;
 
-public class CommandGetBookById implements Command<Book> {
-    BooksService contextBooks;
-    Long id;
+@RequiredArgsConstructor
 
-    public CommandGetBookById(BooksService contextBooks)
+public class CommandGetBookById implements Command {
+    private final Long id;
+    private Book result = null;
+
+    public void execute(CommandContext commandContext) {
+        result = commandContext.getBooksService().getBookById(id);
+    }
+
+    public Book getResultGetBookById()
     {
-        this.contextBooks = contextBooks;
-    }
-    @Override
-    public Book execute() {
-        return contextBooks.getBookById(id);
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+        return result;
     }
 }
