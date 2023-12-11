@@ -1,21 +1,21 @@
 package com.example.splabsmarandache.services;
 
-public class CommandDeleteBook implements Command<Void> {
+import com.example.splabsmarandache.models.Book;
+import lombok.RequiredArgsConstructor;
 
-    BooksService contextBooks;
-    Long id;
+@RequiredArgsConstructor
+public class CommandDeleteBook implements Command {
 
-    public CommandDeleteBook(BooksService contextBooks) {
-        this.contextBooks = contextBooks;
+    private final Long id;
+    private Book book;
+
+
+    public void execute(CommandContext commandContext) {
+        book = commandContext.getBooksService().deleteBook(id);
     }
 
-    @Override
-    public Void execute() {
-        contextBooks.deleteBook(id);
-        return null;
-    }
-
-    public void setAtribute(Long id){
-        this.id = id;
+    public Book getResultDeleteBook()
+    {
+        return book;
     }
 }

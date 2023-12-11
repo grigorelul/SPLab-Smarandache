@@ -1,21 +1,23 @@
 package com.example.splabsmarandache.services;
 
 import com.example.splabsmarandache.models.Book;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import java.util.Map;
+@RequiredArgsConstructor
+public class CommandAddBook implements Command {
 
-public class CommandAddBook implements Command<Book> {
-    BooksService contextbooks;
+    private  Book newBook;
+    private final Map<String, Object> request;
 
-    Book newBook;
-    public CommandAddBook(BooksService contextbooks){
-        this.contextbooks = contextbooks;
+
+
+    public void execute(CommandContext commandContext) {
+        newBook = commandContext.getBooksService().createBook(new Book((String) request.get("titlu")));
     }
 
-    @Override
-    public Book execute() {
-        return contextbooks.createBook(newBook);
-    }
-
-    public void setAtribute(Book newBook){
-        this.newBook = newBook;
+    public Book getResultAddBook()
+    {
+        return newBook;
     }
 }

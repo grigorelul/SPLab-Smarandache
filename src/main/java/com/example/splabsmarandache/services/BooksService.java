@@ -28,16 +28,18 @@ public class BooksService {
         return books.get(bookId);
     }
 
-    public void updateBook(Long bookId, Book updatedBookData) {
+    public Book updateBook(Long bookId, Book updatedBookData) {
         if (books.containsKey(bookId)) {
             books.put(bookId, updatedBookData);
         }
+        return getBookById(bookId);
     }
 
-    public void deleteBook(Long bookId) {
+    public Book deleteBook(Long bookId) {
+        Book book = getBookById(bookId);
         books.remove(bookId);
+        return book;
     }
-
     private synchronized long getNextId() {
         return nextId++;
     }
