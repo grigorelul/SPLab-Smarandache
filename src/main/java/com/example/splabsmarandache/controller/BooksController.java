@@ -1,6 +1,7 @@
 package com.example.splabsmarandache.controller;
 
 import com.example.splabsmarandache.models.Book;
+import com.example.splabsmarandache.persistence.BooksRepository;
 import com.example.splabsmarandache.services.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ public class BooksController {
     private final CommandContext context;
     private final AsynchronousExecutorService asynchronousExecutorService;
     private final SynchronousExecutorService synchronousExecutorService;
-
+    private final BooksRepository  booksRepository;
     // GET method to retrieve all books
     @GetMapping
     public ResponseEntity<?> getAllBooks() {
