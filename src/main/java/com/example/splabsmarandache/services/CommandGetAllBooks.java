@@ -1,6 +1,6 @@
 package com.example.splabsmarandache.services;
 
-import com.example.splabsmarandache.models.Book;
+import com.example.splabsmarandache.entitys.Book;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -10,7 +10,7 @@ public class CommandGetAllBooks implements Command{
     private List<Book> bookList = null;
     //commandContext contine colectia de carti
     public void execute(CommandContext commandContext) {
-        bookList = commandContext.getBooksService().getBooks();
+        bookList = commandContext.getBooksRepository().findAll();
     }
 
     public List<Book> getResultAllBooks (){

@@ -1,6 +1,6 @@
 package com.example.splabsmarandache.services;
 
-import com.example.splabsmarandache.models.Book;
+import com.example.splabsmarandache.entitys.Book;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
@@ -11,7 +11,8 @@ public class CommandDeleteBook implements Command {
 
 
     public void execute(CommandContext commandContext) {
-        book = commandContext.getBooksService().deleteBook(id);
+        book = commandContext.getBooksRepository().getReferenceById(id);
+        commandContext.getBooksRepository().deleteById(id);
     }
 
     public Book getResultDeleteBook()
