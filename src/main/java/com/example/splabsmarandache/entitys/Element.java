@@ -1,6 +1,5 @@
 package com.example.splabsmarandache.entitys;
 
-import com.example.splabsmarandache.models.Element;
 import jakarta.persistence.*;
 import lombok.NoArgsConstructor;
 
@@ -9,11 +8,15 @@ import java.util.List;
 
 @Entity
 @NoArgsConstructor(force = true)
-
-public class Author {
+@Inheritance (strategy = InheritanceType.JOINED)
+public class Element {
     @Id
     @GeneratedValue
     long id;
-    @Column
-    String name;
+
+    @OneToMany(targetEntity = Element.class)
+    private final List<Element> children = new ArrayList<>();
+
+
+
 }

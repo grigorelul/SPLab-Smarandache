@@ -1,6 +1,6 @@
 package com.example.splabsmarandache.services;
 
-import com.example.splabsmarandache.models.Book;
+import com.example.splabsmarandache.entitys.Book;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;
@@ -12,7 +12,7 @@ public class CommandGetBookById implements Command {
     private Book result = null;
 
     public void execute(CommandContext commandContext) {
-        result = commandContext.getBooksService().getBookById(id);
+        result = commandContext.getBooksRepository().getReferenceById(id);
     }
 
     public Book getResultGetBookById()

@@ -1,6 +1,6 @@
 package com.example.splabsmarandache.controller;
 
-import com.example.splabsmarandache.models.Book;
+import com.example.splabsmarandache.entitys.Book;
 import com.example.splabsmarandache.persistence.BooksRepository;
 import com.example.splabsmarandache.services.*;
 import lombok.RequiredArgsConstructor;
