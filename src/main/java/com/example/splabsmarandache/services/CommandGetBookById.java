@@ -12,7 +12,7 @@ public class CommandGetBookById implements Command {
     private Book result = null;
 
     public void execute(CommandContext commandContext) {
-        result = commandContext.getBooksRepository().getReferenceById(id);
+        result = commandContext.getBookCrudRepositoryAdapter().findById(id).get();
     }
 
     public Book getResultGetBookById()

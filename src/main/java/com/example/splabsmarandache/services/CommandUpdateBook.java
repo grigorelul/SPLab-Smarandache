@@ -14,9 +14,9 @@ public class CommandUpdateBook implements Command{
 
     public void execute(CommandContext commandContext) {
 
-        book = commandContext.getBooksRepository().getReferenceById(id);
+        book = commandContext.getBookCrudRepositoryAdapter().findById(id).get();
         book = copyBook;
-        book = commandContext.getBooksRepository().save(book);
+        book = commandContext.getBookCrudRepositoryAdapter().save(book);
     }
 
     public Book getResultUpdateBook()

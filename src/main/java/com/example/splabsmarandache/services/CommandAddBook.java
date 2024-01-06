@@ -15,7 +15,7 @@ public class CommandAddBook implements Command {
     public void execute(CommandContext commandContext) {
         newBook = new Book();
         newBook.setTitle((String) request.get("titlu"));
-        commandContext.getBooksRepository().save(newBook);
+        commandContext.getBookCrudRepositoryAdapter().save(newBook);
     }
 
     public Book getResultAddBook()

@@ -10,7 +10,7 @@ public class CommandGetAllBooks implements Command{
     private List<Book> bookList = null;
     //commandContext contine colectia de carti
     public void execute(CommandContext commandContext) {
-        bookList = commandContext.getBooksRepository().findAll();
+        bookList = commandContext.getBookCrudRepositoryAdapter().findAll();
     }
 
     public List<Book> getResultAllBooks (){

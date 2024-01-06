@@ -11,8 +11,8 @@ public class CommandDeleteBook implements Command {
 
 
     public void execute(CommandContext commandContext) {
-        book = commandContext.getBooksRepository().getReferenceById(id);
-        commandContext.getBooksRepository().deleteById(id);
+        book = commandContext.getBookCrudRepositoryAdapter().findById(id).get();
+        commandContext.getBookCrudRepositoryAdapter().deleteById(id);
     }
 
     public Book getResultDeleteBook()
