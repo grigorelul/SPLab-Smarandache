@@ -20,6 +20,7 @@ public class BooksController {
     private final CommandContext context;
     private final AsynchronousExecutorService asynchronousExecutorService;
     private final SynchronousExecutorService synchronousExecutorService;
+    private final AllBooksSubject allBooksSubject;
     // GET method to retrieve all books
     @GetMapping
     public ResponseEntity<?> getAllBooks() {
@@ -38,10 +39,13 @@ public class BooksController {
 
     // POST method to add a new book
     @PostMapping
-    public ResponseEntity<?> addBook(@RequestBody Map<String, Object> request) {
+    public String addBook(@RequestBody Map<String, Object> request) {
         CommandAddBook commandAddBook = new CommandAddBook(request);
         asynchronousExecutorService.executeCommand(commandAddBook, context);
-        return new ResponseEntity<>(commandAddBook.getResultAddBook(), HttpStatus.OK);
+        Book book = commandAddBook.getResultAddBook();
+        allBooksSubject.notifyObservers(book);
+        return "Cartea a fost salvată [ " + book.getTitle() + " ] ";
+
     }
 
     // PUT method to update a book by ID
